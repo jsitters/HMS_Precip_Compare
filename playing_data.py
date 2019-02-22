@@ -82,32 +82,3 @@ fig.subplots_adjust(hspace=0.4, wspace=0.4)
 #plt.tight_layout()    
 plt.title("Mean Monthly Precipitation")
 
-#for i in range(5):
-#    for j in range(4):
-#        for eco in zip(mon.index.get_level_values(0).unique()):#df0 = mon.loc[eco]   
-total=p.apply(np.sum)
-
-#os.chdir('//AA.AD.EPA.GOV/ORD/ATH/USERS/A-M/jsitters/Net MyDocuments/Research Documents/HMS Doc/Compare')
-#
-#
-#hms=pd.read_csv('AZ_ncdcdaymetnldasgldas.csv', parse_dates=['Date'], index_col=["Date"],
-#                na_values=[-10000.0, -9999.0], keep_default_na=False, verbose=True) #na_values just ignores the datapoint
-#hms.columns= ['NCDC', 'DAYMET', 'NLDAS', 'GLDAS']
-#
-##Converting dtypes to numbers and dates !columns NLDAS and GLDAS were in numeric
-#hms['DAYMET']=pd.to_numeric(hms['DAYMET'])
-#hms['NCDC']=pd.to_numeric(hms['NCDC'])
-#hms.index=pd.to_datetime(hms.index, format='%Y-%m-%d') #hms.index.str.split(" ")
-####working with all the data for each ecoregion###
-#labels=  ['NCEI','DAYMET','GLDAS','NLDAS','Ecoregion']
-"""mean absolute error""" #no missing data
-mae=pd.DataFrame(np.zeros(shape=(len(hms), 4) ))
-mae.columns=hms.columns
-mae.index+=1
-i=0
-for j in range(len(hms.columns)):
-    if hms.notnull():
-        mae.iloc[i][j]=mean_absolute_error(hms['NCDC'], hms[hms.columns[j]])
-    i=i+1
-
-
